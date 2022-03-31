@@ -16,8 +16,14 @@ git add *
 git commit -a -m 'aqui va tu mensaje y nombre'
 git push
 ```
+## Instalacion
+Comenzamos por instalar los requisitos, esto mediante:
+```bash
+pip install -r requirements.txt
+```
 
-## Instalación
+
+## Instalación Experimental (aun no funcional en todo OS)
 Para comenzar debes de instalar los paquetes, te recomiendo activar el environment de python para que no debas instalar nada a tu python. 
 Para ello dentro de la carpeta de este github dirigete a `astrovs` el cual contiene el `environment` de python.
 ```bash
