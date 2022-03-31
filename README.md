@@ -24,6 +24,13 @@ Para ello dentro de la carpeta de este github dirigete a `astrovs` el cual conti
 cd astrovs\Scripts
 .\activate
 ```
+En el caso de utilizar Mac
+```bash
+cd astrovs\Scripts
+chmod 755 activate
+source .\activate
+```
+
 La ultima linea activara el `environment` por tanto no tendras que instalar nada, entonces para iniciar el juego, dirigete a la carpeta base
 ```bash
 python .\main.py
