@@ -16,5 +16,6 @@ GREEN_LASER = image.load(os.path.join("assets", "pixel_laser_green.png"))
 BLUE_LASER = image.load(os.path.join("assets", "pixel_laser_blue.png"))
 YELLOW_LASER = image.load(os.path.join("assets", "pixel_laser_yellow.png"))
 
+
 # Background
 BG = transform.scale(image.load(os.path.join("assets", "background-black.png")), (WIDTH, HEIGHT))
