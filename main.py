@@ -41,18 +41,21 @@ def main():
     lost_count = 0
 
     def redraw_window():
+        # ZONA DE RENDER ---------------------
+        # Renderiza el Background
         WIN.blit(BG, (0,0))
         # Texto
         lives_label = main_font.render(f"Vidas: {lives}", 1, (255,255,255))
         level_label = main_font.render(f"Nivel: {level}", 1, (255,255,255))
-
+        # Texto de Vidas y Nivel
         WIN.blit(lives_label, (10, 10))
         WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
-
+        # Renderiza los enemigos
         for enemy in enemies:
             enemy.draw(WIN)
-
+        # Renderiza el jugador
         player.draw(WIN)
+        # END ZONA DE RENDER ------------------
 
         if lost:
             lost_label = lost_font.render("Changos!! Perdiste u.u", 1, (255,255,255))
