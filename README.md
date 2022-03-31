@@ -10,6 +10,7 @@ git pull
 
 Una vez que tengas tu jefe listo el juego te indicara el comando que debes correr en la terminal
 ```bash
+git add *
 git commit -a -m 'aqui va tu mensaje y nombre'
 git push
 ```
