@@ -17,13 +17,21 @@ git commit -a -m 'aqui va tu mensaje y nombre'
 git push
 ```
 ## Instalacion
-Comenzamos por instalar los requisitos, esto mediante:
+Notese que si tienes Python2 debes de utilizar `pip3` en cada comando, ya que todo corre con pyton3
+Para empezar crea un entorno virtual para no modificar ninguna de tus librerias ya instaladas ( puedes omitir este paso en caso de que no te importe mucho, unicamente estareas instalando `pygame` )
+```
+pip install virtualenv
+virtualenv NOMBREENTORNOVIRTUAL
+```
+Luego activamos esto, puedes visitar la seccion de abajo sobre como activar un entorno virtual, en este caso llamado `astrovs`
+
+Comenzamos por instalar los requisitos, esto mediante: 
 ```bash
 pip install -r requirements.txt
 ```
 
 
-## Instalación Experimental (aun no funcional en todo OS)
+## Activar un Entorno virtual
 Para comenzar debes de instalar los paquetes, te recomiendo activar el environment de python para que no debas instalar nada a tu python. 
 Para ello dentro de la carpeta de este github dirigete a `astrovs` el cual contiene el `environment` de python.
 ```bash
