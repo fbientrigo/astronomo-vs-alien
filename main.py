@@ -97,6 +97,12 @@ def main():
             # [] agregarle un contador de jefes
                 # leer de un archivo
 
+            # Lee el archivo
+            #with open(os.path.join(os.path.dirname( ), )):
+            # aqui va una funcion especializada en seleccionar
+
+            # tipo if level == -1 (entramos en la creacion de modos)
+
             level += 1
             wave_length += 3 
 

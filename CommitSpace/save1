@@ -1,0 +1,27 @@
+{
+    "type": "BossData",
+    "saves": [
+    {
+        "id": 0,
+        "nombre": "Muhr Val Duk",
+        "caracteristicas": {
+            "left_arm": "MetalSlug",
+            "right_arm": "MetalSlug",
+            "head": "MetalSlug"
+        }
+    },
+    
+    {
+        "id": 1,
+        "nombre": "Lord Dohr Daedrelord",
+        "caracteristicas": {
+            "left_arm": "Lovecraftian",
+            "right_arm": "MetalSlug",
+            "head": "MetalSlug"
+        }
+    }
+
+    ]
+    
+
+}
