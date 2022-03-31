@@ -10,35 +10,13 @@ from loader import RED_SPACE_SHIP, GREEN_SPACE_SHIP, BLUE_SPACE_SHIP, YELLOW_SPA
 
 # Logica Base
 from Logica import collide
-
-
 from Laser import Laser
 from Ship import Ship
 from Player import Player
+from Enemy import Enemy
 
 
 
-
-class Enemy(Ship):
-    COLOR_MAP = {
-                "red": (RED_SPACE_SHIP, RED_LASER),
-                "green": (GREEN_SPACE_SHIP, GREEN_LASER),
-                "blue": (BLUE_SPACE_SHIP, BLUE_LASER)
-                }
-
-    def __init__(self, x, y, color, health=100):
-        super().__init__(x, y, health)
-        self.ship_img, self.laser_img = self.COLOR_MAP[color]
-        self.mask = pygame.mask.from_surface(self.ship_img)
-
-    def move(self, vel):
-        self.y += vel
-
-    def shoot(self):
-        if self.cool_down_counter == 0:
-            laser = Laser(self.x-20, self.y, self.laser_img)
-            self.lasers.append(laser)
-            self.cool_down_counter = 1
 
 def main():
     run = True
@@ -50,10 +28,10 @@ def main():
 
     enemies = []
     wave_length = 5
-    enemy_vel = 1
+    enemy_vel = 2.5
 
-    player_vel = 5
-    laser_vel = 5
+    player_vel = 6
+    laser_vel = 6
 
     player = Player(WIDTH/2, HEIGHT/2)
 
@@ -64,9 +42,9 @@ def main():
 
     def redraw_window():
         WIN.blit(BG, (0,0))
-        # draw text
-        lives_label = main_font.render(f"Lives: {lives}", 1, (255,255,255))
-        level_label = main_font.render(f"Level: {level}", 1, (255,255,255))
+        # Texto
+        lives_label = main_font.render(f"Vidas: {lives}", 1, (255,255,255))
+        level_label = main_font.render(f"Nivel: {level}", 1, (255,255,255))
 
         WIN.blit(lives_label, (10, 10))
         WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
@@ -80,25 +58,45 @@ def main():
             lost_label = lost_font.render("Changos!! Perdiste u.u", 1, (255,255,255))
             WIN.blit(lost_label, (WIDTH/2 - lost_label.get_width()/2, 350))
 
+        #if win: #en caso de ganar puedes agregar a un jefe
+            # TODO
+            # [] agregar un menu donde disparas a las partes del jefe que quieres
+            # [] puedes escribir y guardar el nombre de este
+            # [] agregar ese nivel como una funcion 
+
+      #     pass
+
         pygame.display.update()
 
     while run:
         clock.tick(FPS)
         redraw_window()
 
+        # Si se cumple cualquiera de estas condiciones el juego acaba
         if lives <= 0 or player.health <= 0:
             lost = True
             lost_count += 1
 
-        if lost:
-            if lost_count > FPS * 3:
-                run = False
-            else:
-                continue
+            # Entonces se ejecutara esto 
+            # TODO
+            # [] Confirmar que se pierde
 
+            if lost:
+                if lost_count > FPS * 3:
+                    run = False
+                else:
+                    continue
+
+        # Completa la Oleada
         if len(enemies) == 0:
+            # TODO
+            # [] Spawn un Jefe
+            # [] agregarle un contador de jefes
+                # leer de un archivo
+
             level += 1
-            wave_length += 5
+            wave_length += 3 
+
             for i in range(wave_length):
                 enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
                 enemies.append(enemy)
@@ -118,6 +116,9 @@ def main():
             player.y += player_vel
         if keys[pygame.K_SPACE]:
             player.shoot()
+        if keys[pygame.K_ASTERISK]:
+            print("Transportar a nivel de jefe")
+            
 
         for enemy in enemies[:]:
             enemy.move(enemy_vel)

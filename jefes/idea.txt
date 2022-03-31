@@ -1,0 +1,3 @@
+- es que se vaya armando con un menu especial
+- hitbox separadas
+- aparece el jefe apenas completamos el lvl
