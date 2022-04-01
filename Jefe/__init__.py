@@ -24,7 +24,10 @@ class Jefe(Ship):
             laser = Laser(self.x-20, self.y, self.laser_img)
             self.lasers.append(laser)
             self.cool_down_counter = 1
-        
+
+    def move(self):
+        pass
+
     def bullet_hell(self):
         """
         Esto recibe una input aleatoria y un gran contador

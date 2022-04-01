@@ -22,6 +22,9 @@ def spawn(enemies, wave_length):
         enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
         enemies.append(enemy)
 
+def spawn_jefe():
+    print("Aqui se imprime un jefecito, por implementar :p")
+    return 1
 
 
 def main():
@@ -120,30 +123,42 @@ def main():
 
             # subir la dificultad
             level, wave_length = level + 1, wave_length + 2
-            # Spawn de los enemigos
-            spawn(enemies, wave_length)
+
+            # Aparece un jefe en el nivel 2, 5, 7, ...
+            if counter_jefe == 0:
+                enemis = spawn_jefe()
+                counter_jefe += 2
+            else:
+                # Spawn de los enemigos
+                spawn(enemies, wave_length)
+                counter_jefe -= 1
 
         # ------------------- END ZONA DE CAMBIO DE NIVEL ---------------------
 
+        # ------------------ ZONA DE CONTROLES -------------------------------
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 quit()
 
         keys = pygame.key.get_pressed()
-        if keys[pygame.K_a] and player.x - player_vel > 0: # left
+        if ( keys[pygame.K_a] or keys[ pygame.K_LEFT ]) and player.x - player_vel > 0: # left
             player.x -= player_vel
-        if keys[pygame.K_d] and player.x + player_vel + player.get_width() < WIDTH: # right
+        if ( keys[pygame.K_d] or keys[pygame.K_RIGHT]) and player.x + player_vel + player.get_width() < WIDTH: # right
             player.x += player_vel
-        if keys[pygame.K_w] and player.y - player_vel > 0: # up
+        if ( keys[pygame.K_w] or keys[pygame.K_UP]) and player.y - player_vel > 0: # up
             player.y -= player_vel
-        if keys[pygame.K_s] and player.y + player_vel + player.get_height() + 15 < HEIGHT: # down
+        if ( keys[pygame.K_s] or keys[pygame.K_DOWN]) and player.y + player_vel + player.get_height() + 15 < HEIGHT: # down
             player.y += player_vel
         if keys[pygame.K_SPACE]:
             player.shoot()
         if keys[pygame.K_ASTERISK]:
             print("Transportar a nivel de jefe")
-            
 
+        # salir del juego con Escape 
+        if keys[pygame.K_ESCAPE]:
+            quit()
+            
+        # ------------------ END ZONA DE CONTROLES -------------------------------
 
 
         # Logica de Enemigos
