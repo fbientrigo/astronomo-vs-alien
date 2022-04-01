@@ -10,29 +10,17 @@ from loader import HORROR_HEAD, HORROR_EYE, HORROR_LEFT_ARM, HORROR_RIGHT_ARM, M
 
 import random
 
-horror = {
-    'head': HORROR_HEAD, 'left': HORROR_LEFT_ARM, 'right': HORROR_RIGHT_ARM, 'eye': HORROR_EYE
-}
-
-mecha = {
-    'head': MECHA_HEAD, 'eye': MECHA_EYE, 'left': MECHA_ARM, 'right': MECHA_ARM
-}
-
-metroid = {
-    'head': METROID_HEAD, 'left': METROID_HEAD, 'right': METROID_HEAD, 'eye': METROID_HEAD
-}
-
+horror = { 'head': HORROR_HEAD, 'left': HORROR_LEFT_ARM, 'right': HORROR_RIGHT_ARM, 'eye': HORROR_EYE }
+mecha = { 'head': MECHA_HEAD, 'eye': MECHA_EYE, 'left': MECHA_ARM, 'right': MECHA_ARM }
+metroid = { 'head': METROID_HEAD, 'left': METROID_HEAD, 'right': METROID_HEAD, 'eye': METROID_HEAD }
 
 class Jefe(Ship):
-
-
     def __init__(self, x, y, tipo, parte, health=200):
         """
         parte: {head, left, right, eye}
         tipo: {horror, mecha, metroid}
         """
         super().__init__(x, y, health)
-
         self.dificultad = random.randrange(20, 50)
 
         # ZONA DE CONFIG 

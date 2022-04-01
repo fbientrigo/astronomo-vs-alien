@@ -22,6 +22,8 @@ def spawn(enemies, wave_length):
         enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
         enemies.append(enemy)
 
+# Aqui se lee el fichero y se guarda en tipo
+# que luego se le pasa a la funcion del spawn_jefe
 def spawn_jefe():
     # Jefe(x,y, tipo, parte)
     # props externas temporalmente puestas aqui
@@ -31,12 +33,13 @@ def spawn_jefe():
     pSX = WIDTH/2  #puntoSpawnX
     # Spawnea 4 objetos del Jefe
     brazo_derecho = Jefe(pSX + 30, pSY + 20, tipo, parte="right")
-    brazo_izquierdo = Jefe(pSX + 30, pSY + 20, tipo, parte="left")
+    brazo_izquierdo = Jefe(pSX - 30, pSY + 20, tipo, parte="left")
     ojo = Jefe(pSX, pSY + 40, tipo, parte="eye")
     cabeza = Jefe(pSX, pSY, tipo, parte="head")
 
-    print("Aqui se imprime un jefecito, por implementar :p")
-    return ojo, cabeza, brazo_izquierdo, brazo_derecho
+    print("Visita mi canal de Youtube @floresenhalloween, nah xD sjdsa")
+    print("Imprimiendo y creando jefe, version experimental 1.8")
+    return [ojo, cabeza, brazo_izquierdo, brazo_derecho]
 
 
 def main():
