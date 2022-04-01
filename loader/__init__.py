@@ -22,13 +22,13 @@ BG = transform.scale(image.load(os.path.join("assets", "background-black.png")),
 
 # BOSS PARTS
 
-HEAD = image.load(os.path.join("jefe", "lovecraftian-swarm.png"))
-EYE = image.load(os.path.join("jefe", "lovecraftian-eye.png"))
-LEFT_ARM = image.load(os.path.join("jefe", "lovecraftian-left-arm.png"))
-RIGHT_ARM = image.load(os.path.join("jefe", "lovecraftian-right-arm.png"))
+HORROR_HEAD = image.load(os.path.join("jefe", "lovecraftian-swarm.png"))
+HORROR_EYE = image.load(os.path.join("jefe", "lovecraftian-eye.png"))
+HORROR_LEFT_ARM = image.load(os.path.join("jefe", "lovecraftian-left-arm.png"))
+HORROR_RIGHT_ARM = image.load(os.path.join("jefe", "lovecraftian-right-arm.png"))
 
 MECHA_EYE = image.load(os.path.join("jefe", "mecha-eye.png"))
 MECHA_ARM = image.load(os.path.join("jefe", "mecha-arm.png"))
 MECHA_HEAD = image.load(os.path.join("jefe", "mecha-center.png"))
 
-METROID = image.load(os.path.join("jefe", "metroid-brain.png"))
+METROID_HEAD = image.load(os.path.join("jefe", "metroid-brain.png"))

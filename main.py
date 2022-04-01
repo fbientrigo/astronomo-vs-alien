@@ -14,7 +14,7 @@ from Laser import Laser
 from Ship import Ship
 from Player import Player
 from Enemy import Enemy
-
+from Jefe import Jefe
 
 def spawn(enemies, wave_length):
     # Spawn de Enemigos
@@ -23,8 +23,20 @@ def spawn(enemies, wave_length):
         enemies.append(enemy)
 
 def spawn_jefe():
+    # Jefe(x,y, tipo, parte)
+    # props externas temporalmente puestas aqui
+    tipo = "HORROR"
+
+    pSY = HEIGHT/8 #puntoSpawnY
+    pSX = WIDTH/2  #puntoSpawnX
+    # Spawnea 4 objetos del Jefe
+    brazo_derecho = Jefe(pSX + 30, pSY + 20, tipo, parte="right")
+    brazo_izquierdo = Jefe(pSX + 30, pSY + 20, tipo, parte="left")
+    ojo = Jefe(pSX, pSY + 40, tipo, parte="eye")
+    cabeza = Jefe(pSX, pSY, tipo, parte="head")
+
     print("Aqui se imprime un jefecito, por implementar :p")
-    return 1
+    return ojo, cabeza, brazo_izquierdo, brazo_derecho
 
 
 def main():
@@ -151,8 +163,9 @@ def main():
             player.y += player_vel
         if keys[pygame.K_SPACE]:
             player.shoot()
-        if keys[pygame.K_ASTERISK]:
+        if keys[pygame.K_k]:
             print("Transportar a nivel de jefe")
+            enemies = spawn_jefe()
 
         # salir del juego con Escape 
         if keys[pygame.K_ESCAPE]:
