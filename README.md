@@ -17,6 +17,7 @@ git commit -a -m 'aqui va tu mensaje y nombre'
 git push
 ```
 ## Instalacion
+Sirve sobre Python3.6 comprobado hasta el 3.10
 Notese que si tienes Python2 debes de utilizar `pip3` en cada comando, ya que todo corre con pyton3
 Para empezar crea un entorno virtual para no modificar ninguna de tus librerias ya instaladas ( puedes omitir este paso en caso de que no te importe mucho, unicamente estareas instalando `pygame` )
 ```
