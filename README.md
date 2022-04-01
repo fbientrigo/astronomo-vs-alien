@@ -1,6 +1,7 @@
 # astronomo-vs-alien
 
-![image](https://user-images.githubusercontent.com/42480199/161132547-781816b7-dd77-45a5-b1fb-898efbbed0ae.png)
+![image](https://user-images.githubusercontent.com/42480199/161172553-33fa1efc-f5ed-4a63-8ae9-fcf64ff5a43d.png)
+
 
 Una vez se completa el juego, tienes la posibilidad de crear tu propio jefe y agregarlo para los demas que lo jueguen.
 
