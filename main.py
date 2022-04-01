@@ -100,6 +100,9 @@ def main():
             # Lee el archivo
             #with open(os.path.join(os.path.dirname( ), )):
             # aqui va una funcion especializada en seleccionar
+            from Logica import leerSave
+            pathRelativa = os.path.dirname(__file__)
+            leerSave(pathRelativa)
 
             # tipo if level == -1 (entramos en la creacion de modos)
 

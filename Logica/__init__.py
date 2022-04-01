@@ -11,15 +11,11 @@ def collide(obj1, obj2):
     offset_y = obj2.y - obj1.y
     return obj1.mask.overlap(obj2.mask, (offset_x, offset_y)) != None
 
-def leerSave():
+def leerSave(pathRelativa):
     """
     utiliza el context manager para asi leer el archivo y encontrar los datos guardados
     """
-    pass
-
-
-if __name__ == "__main__":
-    print("Estas en modo debug para chequear el funcionamiento")
-    print("Estas visitando los siguientes paths para los juegos guardados")
-
-    pathSave = os.path.join()
+    pathCommit = os.path.join(pathRelativa, "CommitSpace")
+    pathCommit = os.path.join(pathCommit, "save.json") 
+    return 0
+    
