@@ -14,6 +14,7 @@ def collide(obj1, obj2):
 def leerSave(pathRelativa):
     """
     utiliza el context manager para asi leer el archivo y encontrar los datos guardados
+    se leeran con csv
     """
     pathCommit = os.path.join(pathRelativa, "CommitSpace")
     pathCommit = os.path.join(pathCommit, "save.json") 

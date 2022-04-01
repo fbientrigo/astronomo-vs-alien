@@ -16,6 +16,12 @@ from Player import Player
 from Enemy import Enemy
 
 
+def spawn(enemies, wave_length):
+    # Spawn de Enemigos
+    for i in range(wave_length):
+        enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
+        enemies.append(enemy)
+
 
 
 def main():
@@ -31,14 +37,20 @@ def main():
     enemy_vel = 2.5
 
     player_vel = 6
-    laser_vel = 6
-
+    laser_vel = 8
+    # spawn de player
     player = Player(WIDTH/2, HEIGHT/2)
 
     clock = pygame.time.Clock()
 
     lost = False
     lost_count = 0
+
+    # Counter para Jefe
+    # cada nivel se reduce y se llega a 0
+    # 1 significa que habra un nivel normal y entonces un jefe
+    # 2 signifca dos niveles normales y entonces un jefe
+    counter_jefe = 1
 
     def redraw_window():
         # ZONA DE RENDER ---------------------
@@ -48,8 +60,8 @@ def main():
         lives_label = main_font.render(f"Vidas: {lives}", 1, (255,255,255))
         level_label = main_font.render(f"Nivel: {level}", 1, (255,255,255))
         # Texto de Vidas y Nivel
-        WIN.blit(lives_label, (10, 10))
-        WIN.blit(level_label, (WIDTH - level_label.get_width() - 10, 10))
+        WIN.blit(lives_label, (10, 50))
+        WIN.blit(level_label, (10, 10))
         # Renderiza los enemigos
         for enemy in enemies:
             enemy.draw(WIN)
@@ -67,7 +79,6 @@ def main():
             # [] puedes escribir y guardar el nombre de este
             # [] agregar ese nivel como una funcion 
 
-      #     pass
 
         pygame.display.update()
 
@@ -90,6 +101,7 @@ def main():
                 else:
                     continue
 
+        # ------------------- ZONA DE CAMBIO DE NIVEL ---------------------
         # Completa la Oleada
         if len(enemies) == 0:
             # TODO
@@ -106,12 +118,12 @@ def main():
 
             # tipo if level == -1 (entramos en la creacion de modos)
 
-            level += 1
-            wave_length += 3 
+            # subir la dificultad
+            level, wave_length = level + 1, wave_length + 2
+            # Spawn de los enemigos
+            spawn(enemies, wave_length)
 
-            for i in range(wave_length):
-                enemy = Enemy(random.randrange(50, WIDTH-100), random.randrange(-1500, -100), random.choice(["red", "blue", "green"]))
-                enemies.append(enemy)
+        # ------------------- END ZONA DE CAMBIO DE NIVEL ---------------------
 
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
@@ -132,6 +144,9 @@ def main():
             print("Transportar a nivel de jefe")
             
 
+
+
+        # Logica de Enemigos
         for enemy in enemies[:]:
             enemy.move(enemy_vel)
             enemy.move_lasers(laser_vel, player)
@@ -146,6 +161,7 @@ def main():
                 lives -= 1
                 enemies.remove(enemy)
 
+        #Los lasers del jugador van hacia arriba
         player.move_lasers(-laser_vel, enemies)
 
 def main_menu():
@@ -153,7 +169,9 @@ def main_menu():
     run = True
     while run:
         WIN.blit(BG, (0,0))
+        title_label0 = title_font.render("Science and Commit", 1, (255,255,255))
         title_label = title_font.render("Espacio para entrar", 1, (255,255,255))
+        WIN.blit(title_label0, (WIDTH/2 - title_label.get_width()/2, 100))
         WIN.blit(title_label, (WIDTH/2 - title_label.get_width()/2, 350))
         pygame.display.update()
         for event in pygame.event.get():

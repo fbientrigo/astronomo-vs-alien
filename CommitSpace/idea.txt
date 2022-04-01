@@ -1,3 +1,6 @@
 - es que se vaya armando con un menu especial
 - hitbox separadas
 - aparece el jefe apenas completamos el lvl
+
+- Al final de un nivel se nos hace elegir un brazo o algo
+- van callendo y debemos de elegirlo
